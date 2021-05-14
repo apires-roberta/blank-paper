@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto IoT - Sobre</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contato-e-login.css">
+    <link rel="stylesheet" href="style_projeto_ind.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 
-<body>
-    <!--header inicio-->
+<body class="my-works">
+    <!-- Início header -->
     <div class="header">
         <div class="container">
-            <h1 class="titulo"><span class="highlight">Projeto</span> IoT Revolucionário</h1>
-            <div class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="" class="current">Login</a></li>
-                </ul>
-            </div>
+            <h2><span class="title">blank paper</span></h2>
+            <ul>
+                <li><a href="index.html"><span class="text-green2">Home</span></a></li>
+                <li><a href="about-me.html">about me</a></li>
+                <li><a href="my-works.html">my works</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="login.html">login</a></li>
+            </ul>
         </div>
     </div>
-    <!--header fim-->
+    <!-- Fim header -->
 
+    <!-- Início Login -->
     <div class="pag-login">
         <div class="container">
             <div class="box-login">
@@ -42,7 +44,7 @@
                     <br>
                     <button id="btn_entrar" class="btn-green">Entrar</button>
                 </form>
-
+                <a href="cadastro.html">cadastre-se</a>
                 <div class="extra">
                     <div id="div_erro" class="msg_erro">
                     </div>
@@ -53,18 +55,24 @@
             </div>
         </div>
     </div>
+    <!-- FIm Login -->
 
-    <!--footer inicio-->
+    <!-- Início Footer -->
     <div class="footer">
-        <div class="container">
-            <h4>Feito com carinho por um aluno BandTec. Copyright © 2021</h4>
+        <div class="footer_text">
+            Entre em contato:<br>
+            roberta2003p@gmail.com.br<br>
+            www.blank-paper.com.br<br>
+        </div>
+        <div class="footer_text2">
+            GitHub: https://github.com/apires-roberta<br>
         </div>
     </div>
-    <!--footer fim-->
-
+    <!-- Fim Footer -->
 </body>
 
 </html>
+
 <script>
 
     function entrar() {
@@ -82,7 +90,7 @@
                     sessionStorage.login_usuario_meuapp = json.login;
                     sessionStorage.nome_usuario_meuapp = json.nome;
 
-                    window.location.href = 'tempo-real.html';
+                    window.location.href = 'index.html';
                 });
 
             } else {
