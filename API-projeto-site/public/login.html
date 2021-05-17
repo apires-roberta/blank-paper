@@ -28,29 +28,32 @@
     <!-- Fim header -->
 
     <!-- Início Login -->
+
     <div class="pag-login">
         <div class="container">
-            <div class="box-login">
-                <h1>Login</h1>
+            <div class="contact">
+                <div class="box-login">
+                    <h1>Login</h1>
 
 
 
-                <form id="form_login" method="post" onsubmit="return entrar()">
-                    Usuário:
-                    <input type="text" class="input-padrao" name="login">
-                    <br>
-                    Senha:
-                    <input type="password" class="input-padrao" name="senha">
-                    <br>
-                    <button id="btn_entrar" class="btn-green">Entrar</button>
-                </form>
-                <a href="cadastro.html">cadastre-se</a>
-                <div class="extra">
-                    <div id="div_erro" class="msg_erro">
+                    <form id="form_login" method="post" onsubmit="return entrar()">
+                        Usuário:
+                        <input type="text" class="input-padrao" name="login" placeholder="Email">
+                        <br>
+                        Senha:
+                        <input type="password" class="input-padrao" name="senha" placeholder="Password">
+                        <br>
+                        <hr>
+                        <button id="btn_entrar" class="btn-white">Entrar</button><br>
+                        <span class="span_contact">Não possui cadastro? <a href="cadastro.html">Entre aqui.</a><br>
+                            <a href="">Esqueceu sua senha?</a></span>
+                    </form>
+                    <div class="extra">
+                        <div id="div_erro" class="msg_erro">
+                        </div>
+                        <img src="aguarde-orange.gif" id="img_aguarde" style="display: none;">
                     </div>
-
-                    <img src="aguarde-orange.gif" id="img_aguarde"  > <!--style="display: none;"-->
-                    
                 </div>
             </div>
         </div>
