@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style_projeto_ind.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/icon-blank-paper.jpg">
+    <title>blank paper</title>
 </head>
 
 <body class="my-works">
@@ -28,47 +29,52 @@
     <!-- Fim header -->
 
     <!-- Início Pacotes -->
-    <div class="container">
-        <div class="box-total">
-            <h1>Commission drawing</h1>
-            <div class="box">
-                <div class="card">
-                    <img src="img/art/bw1.jfif" alt="">
-                    <h4><b>Basic 5$</b></h4>
-                    <p>Desenhos em B&W <br>(Somente rostos)</p>
+    <form id="form_comissao" method="post" onsubmit="return inserir_comissao()">
+        <div class="container">
+            <div class="box-total" id="comissoes">
+                <h1>Commission drawing</h1>
+                <!-- <input name="pacote" id="in_packet" style="display: none;"> -->
+                <div class="box">
+                    <label class="card">
+                        <input type="radio" name="valueCheck" id="r1" value="basic">
+                        <img src="img/art/bw1.jfif">
+                        <h4><b>Basic 5$</b></h4>
+                        <p>Desenhos em B&W <br>(Somente rostos)</p>
+                    </label>
                 </div>
-            </div>
-            <div class="box">
-                <div class="card">
-                    <img src="img/art/taehyung-colors.jfif" alt="">
-                    <h4><b>Medium 15$</b></h4>
-                    <p>Desenhos B&W ou Coloridos (Somente rostos)</p>
+                <div class="box">
+                    <label class="card">
+                        <input type="radio" name="valueCheck" id="r2" value="medium">
+                        <img src="img/art/taehyung-colors.jfif">
+                        <h4><b>Medium 15$</b></h4>
+                        <p>Desenhos B&W ou Coloridos <br>(Somente rostos)</p>
+                    </label>
                 </div>
-            </div>
-            <div class="box">
-                <div class="card">
-                    <img src="img/art/full-body.jpg" alt="">
-                    <h4><b>Plus 25$</b></h4>
-                    <p>Desenhos B&W ou Coloridos (Rosto e Corpo)</p>
+                <div class="box">
+                    <label class="card">
+                        <input type="radio" name="valueCheck" id="r3" value="plus">
+                        <img src="img/art/full-body.jpg">
+                        <h4><b>Plus 25$</b></h4>
+                        <p>Desenhos B&W ou Coloridos <br>(Rosto e Corpo)</p>
+                    </label>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Fim Pacotes -->
+        <!-- Fim Pacotes -->
 
-    <!-- Início Box Contact -->
-    <form>
+        <!-- Início Box Contact -->
         <div class="container">
             <div class="contact">
                 <h1>
                     Entre em contato comigo
                 </h1>
 
-                <input id="id_email" type="email" required placeholder="Email">
+                <input id="id_email" type="text" name="fkUsuario" required placeholder="Email">
                 <label>Escolha uma comissão e faça uma <br>descrição do que você quer em seu desenho :)</label>
-                <input id="input_textarea" type="text" required placeholder="Escreva aqui...">
+                <input id="input_textarea" name="textarea_conteudo" type="text" required placeholder="Escreva aqui..."
+                    maxlength="140">
                 <hr>
-                <button type="submit" class="btn-white">
+                <button type="submit" id="btn_entrar" class="btn-white" value="inserir_comissao">
                     <a href="">Enviar</a>
                 </button>
                 <span class="span_contact">Não possui cadastro? <a href="cadastro.html">Entre aqui.</a><br>
@@ -93,3 +99,59 @@
 </body>
 
 </html>
+
+<script>
+
+    function arte_selecionada() {
+        alert("Entrou na function arte_selecionada()");
+        var radio_value = "",
+            radios = document.getElementsByName("valueCheck");
+
+        for (var contador = 0; contador < radios.length; contador++) {
+            if (radios[contador].checked) {
+                radio_value = radios[contador].value;
+                alert("Deu quase certo");
+            }
+        }
+    }
+
+
+    function inserir_comissao() {
+        aguardar();
+        arte_selecionada();
+        var formulario = new URLSearchParams(new FormData(form_comissao));
+        fetch("/usuarios/inserir_comissao", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            if (response.ok) {
+
+                alert("Seu pedido foi enviado e você receberá uma confirmação por email :)");
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    alert("Deu erro na inserção do seu pacote :(");
+                    // div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        // img_aguarde.style.display = 'block';
+        // div_erro.style.display = 'none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        // img_aguarde.style.display = 'none';
+        // div_erro.style.display = 'block';
+    }
+</script>

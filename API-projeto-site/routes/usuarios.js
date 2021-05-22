@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
+var Comissoes = require('../models').Comissoes;
 
 let sessoes = [];
 
@@ -53,6 +54,22 @@ router.post('/cadastrar', function(req, res, next) {
   	});
 });
 
+/* Cadastrar comissao */
+router.post('/inserir_comissao', function(req, res, next) {
+	console.log('Cadastrando comissão');
+	
+	Comissoes.create({
+		valueCheck : req.body.valueCheck,
+		textarea_conteudo : req.body.textarea_conteudo,
+		fkUsuario : req.body.fkUsuario,
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
 
 /* Verificação de usuário */
 router.get('/sessao/:login', function(req, res, next) {

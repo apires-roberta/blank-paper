@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_projeto_ind.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="img/icon-blank-paper.jpg">
+    <title>blank paper</title>
+</head>
+
+<body class="my-works">
+    <!-- Início header -->
+    <div class="header">
+        <div class="container">
+            <h2><span class="title">blank paper</span></h2>
+            <ul>
+                <li><a href="index.html"><span class="text-green2">Home</span></a></li>
+                <li><a href="about-me.html">about me</a></li>
+                <li><a href="my-works.html">my works</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="login.html">login</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Fim header -->
+
+    <!-- Início Box Contact -->
+    <form>
+        <div class="container">
+            <div class="contact-admin">
+                <h1>
+                    Olá Roberta :)
+                    <br>
+                </h1>
+                <h3>
+                    Margem de vendas por comissão
+                </h3>
+                <hr>
+                <!-- Gráfico de Barras -->
+                <div class="graph">
+                    <canvas id="myChartBar"></canvas>
+                </div>
+
+                <!-- Grafico Pizza -->
+                <div class="graph">
+                    <canvas id="myChartPizza"></canvas>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </form>
+    <!-- FIm Box de Contact -->
+
+    <!-- Início Footer -->
+    <div class="footer">
+        <div class="footer_text">
+            Entre em contato:<br>
+            roberta2003p@gmail.com.br<br>
+            www.blank-paper.com.br<br>
+        </div>
+        <div class="footer_text2">
+            GitHub: https://github.com/apires-roberta<br>
+        </div>
+    </div>
+    <!-- Fim Footer -->
+</body>
+
+</html>
+
+<script>
+    //GRÁFCO DE BARRAS - QUANTIDADE POR ESPECIE
+    const labelsBar = ['Basic', 'Medium', 'Plus'];
+
+    const dataBar = {
+        labels: labelsBar,
+        datasets: [{
+            label: 'Quantidade de vendas',
+            backgroundColor: [
+                'rgb(239,168,50)',
+                'rgb(185,112,48)',
+                'rgb(99,102,59)',
+            ],
+            data: [5, 9, 3],
+        }]
+    };
+
+    // Configurações do gráfico
+    const configBar = {
+        type: 'bar',
+        data: dataBar,
+        options: { maintainAspectRatio: false, },
+    };
+
+    var myChartBar = new Chart(
+        document.getElementById('myChartBar'), configBar
+    );
+
+    //GRÁFCO DE PIZZA - IDADE
+    const labelsPizza = ['Basic', 'Medium', 'Plus'];
+
+    const dataPizza = {
+        labels: labelsPizza,
+        datasets: [{
+            label: 'Número de vendas',
+            backgroundColor: [
+                'rgb(239,168,50)',
+                'rgb(185,112,48)',
+                'rgb(99,102,59)',
+            ],
+            data: [5, 9, 3],
+        }]
+    };
+
+    // Configurações do gráfico
+    const configPizza = {
+        type: 'pie',
+        data: dataPizza,
+        options: { maintainAspectRatio: false, },
+    };
+
+    var myChartPizza = new Chart(
+        document.getElementById('myChartPizza'), configPizza
+    );
+</script>

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style_projeto_ind.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/icon-blank-paper.jpg">
+    <title>blank paper</title>
 </head>
 
 <body class="my-works">
@@ -33,10 +34,7 @@
         <div class="container">
             <div class="contact">
                 <div class="box-login">
-                    <h1>Login</h1>
-
-
-
+                    <h1>Bem vindo novamente</h1>
                     <form id="form_login" method="post" onsubmit="return entrar()">
                         Usuário:
                         <input type="text" class="input-padrao" name="login" placeholder="Email">
@@ -52,7 +50,7 @@
                     <div class="extra">
                         <div id="div_erro" class="msg_erro">
                         </div>
-                        <img src="aguarde-orange.gif" id="img_aguarde" style="display: none;">
+                        <!-- <img src="aguarde-orange.gif" id="img_aguarde" style="display: none;"> -->
                     </div>
                 </div>
             </div>
@@ -94,6 +92,12 @@
                     sessionStorage.nome_usuario_meuapp = json.nome;
 
                     window.location.href = 'index.html';
+
+                    var usuario = document.getElementsByName('login')[0].value;
+                    var senha = document.getElementsByName('senha')[0].value;
+                    if (usuario == "roberta2003p@gmail.com" && senha == "rob123") {
+                        window.location = "admin-page.html";
+                    }
                 });
 
             } else {
@@ -112,13 +116,13 @@
 
     function aguardar() {
         btn_entrar.disabled = true;
-        img_aguarde.style.visibility = 'visible';
+        // img_aguarde.style.visibility = 'visible';
         div_erro.style.visibility = 'hidden';
     }
 
     function finalizar_aguardar(resposta) {
         btn_entrar.disabled = false;
-        img_aguarde.style.visibility = 'hidden';
+        // img_aguarde.style.visibility = 'hidden';
         div_erro.style.visibility = 'visible';
         div_erro.innerHTML = resposta;
     }

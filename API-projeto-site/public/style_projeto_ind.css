@@ -340,8 +340,8 @@
 }
 
 .card img{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 5px;
 }
   
@@ -423,8 +423,102 @@
 .span_contact a{
     color: white;
 }
+.contact select{
+    width: 400px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    margin: 10px;
+}
 /* FIM BOX CONTACT */
 
+/* INICIO BOX CONTACT-ADMIN */
+.contact-admin{
+    border-radius: 10px ;
+    height: 700px;
+    background-color: rgb(88,83,54, 0.5);
+    width: 70%;
+    padding: 30px;
+    margin: auto;
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    margin-bottom: 80px;
+    display: flex;
+    color: white;
+    border-radius: 10px;
+    position: relative;   
+}
+
+.contact-admin h1{
+    font-size: 45px;
+    margin: 30px;
+    color: white;
+    height: 50px;
+}
+
+.contact-admin input{
+    width: 400px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    margin: 10px;
+}
+
+#input_textarea{
+    width: 400px;
+    height: 200px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    margin: 10px;
+}
+
+::placeholder{
+    padding: 10px;
+    font-size: 15px;
+    color: rgb(141, 141, 141);
+}
+
+.contact-admin hr{
+    color: white;
+    width: 60%;
+}
+
+.contact-admin button a{
+    text-decoration: none;
+    color: white;
+}
+/* FIM BOX CONTACT-ADMIN */
+
+/* INICIO GRAFICOS */
+.graph {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: inline-block;
+    width: 45%;
+    height: 250px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 5px;
+    position: relative;
+}
+  
+.dash {
+    margin: auto;
+    text-align: center;
+}
+/* FIM GRAFICOS */
 
 
 
