@@ -61,7 +61,7 @@ router.post('/inserir_comissao', function(req, res, next) {
 	Comissoes.create({
 		valueCheck : req.body.valueCheck,
 		textarea_conteudo : req.body.textarea_conteudo,
-		fkUsuario : req.body.fkUsuario,
+		fkUsuario : req.body.fkUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);

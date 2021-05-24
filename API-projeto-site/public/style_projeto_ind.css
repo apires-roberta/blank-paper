@@ -80,7 +80,7 @@
 
 /* FIM ESTILO HEADER */
 
-/* INICIO ESTILO ROBBIES TITULO */
+/* INICIO ESTILO blank paper */
 .robbies_titulo{
     margin-top: 150px;
     position: absolute;
@@ -102,13 +102,13 @@
 }
 
 .robbies_titulo p{
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     text-shadow: 1px 1px 2px rgb(88,83,54);
 }
-/* FIM ESTILO ROBBIES TITULO */
+/* FIM ESTILO blank paper */
 
-/* INICIO ESTILO ROBBIES ABOUT-ME */
+/* INICIO ESTILO blank paper ABOUT-ME */
 .about-me-h1{
     align-items: center;
     justify-content: center;
@@ -201,7 +201,7 @@
     height: 300px;
     margin: 50px;
 }
-/* FIM ESTILO ROBBIES ABOUT-ME */
+/* FIM ESTILO blank paper ABOUT-ME */
 
 /* INICIO FOOTER */
 .footer{
@@ -228,10 +228,10 @@
 
 /* INICIO GALLERY */
 .heading {
+    margin: 10px;
     text-align: center;
-    font-size: 2.0em;
-    letter-spacing: 1px;
-    padding: 40px;
+    font-size: 45px;
+    padding: 20px;
     color: white;
 }
 

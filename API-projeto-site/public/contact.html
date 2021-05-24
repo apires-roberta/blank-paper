@@ -75,7 +75,7 @@
                     maxlength="140">
                 <hr>
                 <button type="submit" id="btn_entrar" class="btn-white" value="inserir_comissao">
-                    <a href="">Enviar</a>
+                    Enviar
                 </button>
                 <span class="span_contact">Não possui cadastro? <a href="cadastro.html">Entre aqui.</a><br>
                     <a href="">Esqueceu sua senha?</a></span>
@@ -103,21 +103,21 @@
 <script>
 
     function arte_selecionada() {
-        alert("Entrou na function arte_selecionada()");
+        // alert("Entrou na function arte_selecionada()");
         var radio_value = "",
             radios = document.getElementsByName("valueCheck");
 
         for (var contador = 0; contador < radios.length; contador++) {
             if (radios[contador].checked) {
                 radio_value = radios[contador].value;
-                alert("Deu quase certo");
+                // alert("Deu quase certo");
             }
         }
     }
 
 
     function inserir_comissao() {
-        aguardar();
+        // aguardar();
         arte_selecionada();
         var formulario = new URLSearchParams(new FormData(form_comissao));
         fetch("/usuarios/inserir_comissao", {
@@ -128,30 +128,31 @@
             if (response.ok) {
 
                 alert("Seu pedido foi enviado e você receberá uma confirmação por email :)");
+                window.location.href = 'index.html';
 
             } else {
 
                 console.log('Erro de cadastro!');
                 response.text().then(function (resposta) {
-                    alert("Deu erro na inserção do seu pacote :(");
+                    alert("Ocorreu um erro na inserção do seu pacote - Verifique se você é cadastrado. :(");
                     // div_erro.innerHTML = resposta;
                 });
-                finalizar_aguardar();
+                // finalizar_aguardar();
             }
         });
 
         return false;
     }
 
-    function aguardar() {
-        btn_entrar.disabled = true;
-        // img_aguarde.style.display = 'block';
-        // div_erro.style.display = 'none';
-    }
+    // function aguardar() {
+    //     btn_entrar.disabled = true;
+    //     // img_aguarde.style.display = 'block';
+    //     // div_erro.style.display = 'none';
+    // }
 
-    function finalizar_aguardar() {
-        btn_entrar.disabled = false;
-        // img_aguarde.style.display = 'none';
-        // div_erro.style.display = 'block';
-    }
+    // function finalizar_aguardar() {
+    //     btn_entrar.disabled = false;
+    //     // img_aguarde.style.display = 'none';
+    //     // div_erro.style.display = 'block';
+    // }
 </script>
