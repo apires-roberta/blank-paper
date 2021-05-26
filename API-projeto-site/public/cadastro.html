@@ -36,15 +36,17 @@
                 <div class="formulario">
                     <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                         Nome completo:
-                        <input type="text" name="nome"
-                            class="input-padrao" autofocus="autofocus" placeholder="Insira seu Nome e sobrenome" required minlength="4"><br>
+                        <input type="text" name="nome" class="input-padrao" autofocus="autofocus"
+                            placeholder="Insira seu Nome e sobrenome" required minlength="4"><br>
 
                         Login:
-                        <input type="text"  id="in_login" name="login" class="input-padrao" placeholder="Seu usuário" required minlength="4"><br>
+                        <input type="text" id="in_login" onkeyup="validar_campos_login()" name="login" id="in_login"
+                            class="input-padrao" placeholder="Seu usuário" required minlength="4"><br>
 
                         Senha:
-                        <input type="password" id="in_senha" name="senha" class="input-padrao" placeholder="***************" required
-                            minlength="4"><br>
+                        <input type="password" id="in_senha" onkeyup="validar_campos_senha()" name="senha" id="in_senha"
+                            class="input-padrao" placeholder="***************" required minlength="4"><br>
+
                         <!-- 
                         Qual sua preferência artística?
                         <select id="select_pref_art" name="check_art" class="input-padrao" required>
@@ -60,7 +62,7 @@
                     </form>
 
                     <!-- <img src="aguarde-orange.gif" id="img_aguarde" style="display: none; width:100px"> -->
-
+                    <div id="exibir_verificar"></div>
                     <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
                         Erro no cadastro
                     </div>
@@ -92,6 +94,8 @@
 <script>
 
     function cadastrar() {
+        // validar_campos_login();
+        // validar_campos_senha();
         aguardar();
         var formulario = new URLSearchParams(new FormData(form_cadastro));
         fetch("/usuarios/cadastrar", {
@@ -128,26 +132,24 @@
         div_erro.style.display = 'block';
     }
 
-    function validar_campos_login() {
-        var login = in_login_completo.value;
+    /* function validar_campos_login() {
+         var login = in_login.value;
 
-        if(login.indexOf("@") > -1 && nome_completo.indexOf(".") > -1){
-            alert("Email válido");
-        }else{
-            alert("Email inválido");
-        }
+         if (login.indexOf("@") == -1 || nome_completo.indexOf(".com") == -1) {
+             exibir_verificar.innerHTML = `Email inválido, verifique se você colocou "@", ou ".com".`;
+         } else {
+             exibir_verificar.innerHTML = "Email válido";
+         }
+     }
 
-    }
+     function validar_campos_senha() {
+         var senha = in_senha.value;
 
-    function validar_campos_senha() {
-        var senha = in_senha.value;
-
-        if(senha.indexOf.lenght > 8){
-            alert("Senha válida");
-        }else{
-            alert("Por favor, insira uma senha forte");
-        }
-
-    }
+         if (senha.indexOf.lenght == 3) {
+             exibir_verificar.innerHTML = "Senha inválida, por favor, insira uma senha forte.";
+         } else {
+             exibir_verificar.innerHTML = "Senha válida";
+         }
+     } */
 
 </script>
