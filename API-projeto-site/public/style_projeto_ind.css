@@ -364,10 +364,39 @@
     justify-content: center;
     flex-direction: column; 
     margin-bottom: 80px;
-    display: flex;
     color: white;
     border-radius: 10px;
     position: relative;   
+}
+
+
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+#form_login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+#form_cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+.box-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
 }
 
 .contact h1{
@@ -384,6 +413,8 @@
     border: none;
     height: 30px;
     margin: 10px;
+    padding: 2px 10px;
+    outline: 0;
 }
 
 #input_textarea{
@@ -399,8 +430,7 @@
     margin: 10px;
 }
 
-::placeholder{
-    padding: 10px;
+#form_login input::placeholder{
     font-size: 15px;
     color: rgb(141, 141, 141);
 }
@@ -436,7 +466,7 @@
 /* INICIO BOX CONTACT-ADMIN */
 .contact-admin{
     border-radius: 10px ;
-    height: 700px;
+    height: 600px;
     background-color: rgb(88,83,54, 0.5);
     width: 70%;
     padding: 30px;
@@ -501,15 +531,15 @@
 
 /* INICIO GRAFICOS */
 .graph {
-    background-color: white;
+    background-color: whitesmoke;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     display: inline-block;
-    width: 45%;
-    height: 250px;
+    width: 75%;
+    height: 330px;
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 5px;
     position: relative;
 }

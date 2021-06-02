@@ -43,6 +43,12 @@ select count(valueCheck) as 'Quantidade de pacotes' from comissoes where valueCh
 select count(valueCheck) as 'Quantidade de pacotes' from comissoes where valueCheck = 'medium';
 select count(valueCheck) as 'Quantidade de pacotes' from comissoes where valueCheck = 'plus';
 
+select distinct(select count(*) from comissoes where valueCheck = 'basic') as basic,
+				(select count(*) from comissoes where valueCheck = 'medium') as 'medium',
+                (select count(*) from comissoes where valueCheck = 'plus') as plus
+from comissoes;
+
+
 select count(valueCheck) from comissoes;
 
 
