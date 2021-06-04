@@ -9,22 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/icon-blank-paper.jpg">
+    <script type="text/javascript" src="funcoes.js"></script>
     <title>blank paper</title>
 </head>
 
 <body class="home">
     <!-- Início header -->
-    <div class="header">
-        <div class="container">
-            <ul>
-                <li><a href="index.html"><span class="text-green2">Home</span></a></li>
-                <li><a href="about-me.html">about me</a></li>
-                <li><a href="my-works.html">my works</a></li>
-                <li><a href="contact.html">contact</a></li>
-                <li><a href="login.html">login</a></li>
-            </ul>
-        </div>
-    </div>
+    <div id="header"></div>
     <!-- Fim header -->
 
     <!--Título blank paper-->
@@ -44,3 +35,57 @@
 </body>
 
 </html>
+
+<script>
+    var header_deslogado = `
+    <div class="header">
+<div class="container">
+    <h2><span class="title">blank paper</span></h2>
+    <ul>
+        <li><a href="index.html"><span class="text-green2">Home</span></a></li>
+        <li><a href="about-me.html">about me</a></li>
+        <li><a href="my-works.html">my works</a></li>
+        <li><a href="contact.html">store</a></li>
+        <li><a href="login.html">login</a></li>
+    </ul>
+</div>
+</div>
+`;
+
+    var header_logado = `
+    <div class="header">
+<div class="container">
+    <h2><span class="title">blank paper</span></h2>
+    <ul>
+        <li><a href="index.html"><span class="text-green2">Home</span></a></li>
+        <li><a href="about-me.html">about me</a></li>
+        <li><a href="my-works.html">my works</a></li>
+        <li><a href="contact.html">store</a></li>
+        <li>Olá, ${sessionStorage.getItem('nome')}</li>
+        <li><a onclick="logoff()">Sair</a></li>
+    </ul>
+</div>
+</div>
+`;
+
+    var usuario_logado = 0;
+    if (sessionStorage.getItem('logado') == 1) {
+        usuario_logado = 1;
+    } else {
+        usuario_logado = 0;
+    };
+
+
+    alterar_header(usuario_logado);
+
+    function alterar_header(toggle) {
+        var header_conteudo = "";
+        if (toggle == 1) {
+            header_conteudo = header_logado;
+        } else {
+            header_conteudo = header_deslogado;
+        }
+
+        header.innerHTML = header_conteudo;
+    }
+</script>

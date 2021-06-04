@@ -24,21 +24,26 @@ nomeTipo VARCHAR(6) unique key,
 valor int
 ) auto_increment = 2000;
 
+create table preferenciaArtistica (
+idPreferenciaArtistica int primary key auto_increment,
+nomePreferencia varchar (45)
+) auto_increment = 3000;
+
 insert into tipoComissoes value (null, 'basic', 5);
 insert into tipoComissoes value (null, 'medium', 15);
 insert into tipoComissoes value (null, 'plus', 25);
 
-update usuario set login = 'Pedrin2002@gmail.com' where id = 24;
 select * from usuario;
 select * from comissoes;
 select * from tipoComissoes;
+select * from preferenciaArtistica;
 
+-- Script informações de vendas
 select id, nome, login, idComissoes as 'Número do Pedido', valueCheck as 'Nome do Pacote', textarea_conteudo as 'Descrição', valor from usuario 
 join comissoes on usuario.login = comissoes.fkUsuario
 join tipoComissoes on nomeTipo = valueCheck;
 
-select min(valueCheck) as 'Pacote com menos requisição', max(valueCheck) as 'Pacote com mais requisição' from comissoes;
-
+-- Contagem da vendas por pacotes
 select count(valueCheck) as 'Quantidade de pacotes' from comissoes where valueCheck = 'basic';
 select count(valueCheck) as 'Quantidade de pacotes' from comissoes where valueCheck = 'medium';
 select count(valueCheck) as 'Quantidade de pacotes' from comissoes where valueCheck = 'plus';
@@ -48,7 +53,17 @@ select distinct(select count(*) from comissoes where valueCheck = 'basic') as ba
                 (select count(*) from comissoes where valueCheck = 'plus') as plus
 from comissoes;
 
-
 select count(valueCheck) from comissoes;
 
+-- Adiconando fk da tabela preferenciaArtistica
+alter table usuario add column fkPreferenciaArtistica int;
+alter table usuario add foreign key (fkPreferenciaArtistica) references preferenciaArtistica(idPreferenciaArtistica);
+
+insert into preferenciaArtistica values (null, 'Arte Tradicional'),
+										(null, 'Arte Digital');
+                                        
+insert into usuario value (null, 'Roberta Pires', 'roberta2003p@gmail.com', 'rob123', null);
+
+select * from usuario join preferenciaArtistica on fkPreferenciaArtistica = idPreferenciaArtistica;
+select * from usuario left join preferenciaArtistica on fkPreferenciaArtistica = idPreferenciaArtistica;
 

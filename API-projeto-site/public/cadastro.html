@@ -9,23 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/icon-blank-paper.jpg">
+    <script type="text/javascript" src="header.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
     <title>blank paper</title>
 </head>
 
-<body class="my-works">
+<body onload="montando_header()" class="my-works">
+
     <!-- Início header -->
-    <div class="header">
-        <div class="container">
-            <h2><span class="title">blank paper</span></h2>
-            <ul>
-                <li><a href="index.html"><span class="text-green2">Home</span></a></li>
-                <li><a href="about-me.html">about me</a></li>
-                <li><a href="my-works.html">my works</a></li>
-                <li><a href="contact.html">contact</a></li>
-                <li><a href="login.html">login</a></li>
-            </ul>
-        </div>
-    </div>
+    <div id="header"></div>
     <!-- Fim header -->
 
     <!-- Início Cadastro -->
@@ -37,23 +29,23 @@
                     <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                         Nome completo:
                         <input type="text" name="nome" class="input-padrao" autofocus="autofocus"
-                            placeholder="Insira seu Nome e sobrenome" required minlength="4"><br>
+                            placeholder="Insira seu nome completo" required minlength="4"><br>
 
                         Login:
-                        <input type="text" id="in_login" onkeyup="validar_campos_login()" name="login" id="in_login"
-                            class="input-padrao" placeholder="Seu usuário" required minlength="4"><br>
+                        <input type="text" id="in_login" name="login" id="in_login" class="input-padrao"
+                            placeholder="Seu usuário " required minlength="4"><br>
 
                         Senha:
-                        <input type="password" id="in_senha" onkeyup="validar_campos_senha()" name="senha" id="in_senha"
-                            class="input-padrao" placeholder="***************" required minlength="4"><br>
+                        <input type="password" id="in_senha" name="senha" id="in_senha" class="input-padrao"
+                            placeholder="***************" required minlength="4"><br>
 
-                        <!-- 
-                        Qual sua preferência artística?
-                        <select id="select_pref_art" name="check_art" class="input-padrao" required>
-                            <option value="">Selecione uma opção</option>
-                            <option value="1">Arte Tradicional</option>
-                            <option value="2">Arte Digital</option>
-                        </select><br> -->
+
+                        Qual sua preferência artística? (Opcional)
+                        <select id="select_pref_art" name="fkPreferenciaArtistica" class="input-padrao">
+                            <option disabled selected value>Selecione uma opção</option>
+                            <option value="3000">Arte Tradicional</option>
+                            <option value="3001">Arte Digital</option>
+                        </select><br>
 
                         <hr>
                         <button class="btn-white" type="submit" id="btn_entrar">Cadastrar</button><br>
@@ -93,9 +85,22 @@
 
 <script>
 
+    // function preferencia_art() {
+    //     alert("Entrou na function preferencia_art()");
+    //     var option_value = "",
+    //         option = document.getElementsByName("fkPreferenciaArtistica");
+
+    //     for (var contador = 0; contador < option.length; contador++) {
+    //         if (option[contador].selected) {
+    //             option_value = option[contador].value;
+    //         }
+    //     }
+    // }
+
     function cadastrar() {
         // validar_campos_login();
         // validar_campos_senha();
+        // preferencia_art();
         aguardar();
         var formulario = new URLSearchParams(new FormData(form_cadastro));
         fetch("/usuarios/cadastrar", {
@@ -152,4 +157,58 @@
          }
      } */
 
+</script>
+
+<script>
+    var header_deslogado = `
+    <div class="header">
+<div class="container">
+    <h2><span class="title">blank paper</span></h2>
+    <ul>
+        <li><a href="index.html"><span class="text-green2">Home</span></a></li>
+        <li><a href="about-me.html">about me</a></li>
+        <li><a href="my-works.html">my works</a></li>
+        <li><a href="contact.html">store</a></li>
+        <li><a href="login.html">login</a></li>
+    </ul>
+</div>
+</div>
+`;
+
+    var header_logado = `
+    <div class="header">
+<div class="container">
+    <h2><span class="title">blank paper</span></h2>
+    <ul>
+        <li><a href="index.html"><span class="text-green2">Home</span></a></li>
+        <li><a href="about-me.html">about me</a></li>
+        <li><a href="my-works.html">my works</a></li>
+        <li><a href="contact.html">store</a></li>
+        <li>Olá, ${sessionStorage.getItem('nome')}</li>
+        <li><a onclick="logoff()">Sair</a></li>
+    </ul>
+</div>
+</div>
+`;
+
+    var usuario_logado = 0;
+    if (sessionStorage.getItem('logado') == 1) {
+        usuario_logado = 1;
+    } else {
+        usuario_logado = 0;
+    };
+
+
+    alterar_header(usuario_logado);
+
+    function alterar_header(toggle) {
+        var header_conteudo = "";
+        if (toggle == 1) {
+            header_conteudo = header_logado;
+        } else {
+            header_conteudo = header_deslogado;
+        }
+
+        header.innerHTML = header_conteudo;
+    }
 </script>
