@@ -137,8 +137,8 @@
 }
 
 .about-me {
-    margin: 50px;
-    margin-top: 30px;
+    margin: 40px;
+    margin-top: 20px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -718,9 +718,8 @@
     margin: auto;
     align-items: center;
     text-align: center;
-    margin-top: 10px;
     width: 80%;
-    height: 400px;
+    height: 300px;
 }
 
 .box-total-valores h1 {
