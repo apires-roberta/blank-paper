@@ -13,7 +13,7 @@ module.exports = {
         encrypt: true
       }
     },
-    pool: { 
+    pool: {
       max: 5,
       min: 1,
       acquire: 5000,
@@ -36,7 +36,7 @@ module.exports = {
         encrypt: true
       }
     },
-    pool: { 
+    pool: {
       max: 5,
       min: 1,
       acquire: 5000,
